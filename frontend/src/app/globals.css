@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+
+    --primary: 221 83% 53%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --ring: 221 83% 53%;
+    --radius: 0.5rem;
+
+    /* Severity colors */
+    --severity-critical: 0 84% 60%;
+    --severity-high: 25 95% 53%;
+    --severity-medium: 45 93% 47%;
+    --severity-low: 142 71% 45%;
+  }
+
+  .dark {
+    --background: 222 47% 8%;
+    --foreground: 213 31% 91%;
+
+    --card: 222 47% 11%;
+    --card-foreground: 213 31% 91%;
+
+    --border: 216 34% 17%;
+    --input: 216 34% 17%;
+
+    --primary: 221 83% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 222 47% 14%;
+    --secondary-foreground: 213 31% 91%;
+
+    --muted: 222 47% 14%;
+    --muted-foreground: 215 20% 55%;
+
+    --accent: 222 47% 14%;
+    --accent-foreground: 213 31% 91%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --ring: 221 83% 60%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: 'rlig' 1, 'calt' 1;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer components {
+  /* File drag-and-drop highlight */
+  .drop-zone-active {
+    @apply border-primary bg-primary/5 ring-2 ring-primary ring-offset-2;
+  }
+
+  /* Severity badges */
+  .severity-critical {
+    @apply bg-red-100 text-red-700 dark:bg-red-950 dark:text-red-400;
+  }
+  .severity-high {
+    @apply bg-orange-100 text-orange-700 dark:bg-orange-950 dark:text-orange-400;
+  }
+  .severity-medium {
+    @apply bg-yellow-100 text-yellow-700 dark:bg-yellow-950 dark:text-yellow-400;
+  }
+  .severity-low {
+    @apply bg-green-100 text-green-700 dark:bg-green-950 dark:text-green-400;
+  }
+  .severity-info {
+    @apply bg-blue-100 text-blue-700 dark:bg-blue-950 dark:text-blue-400;
+  }
+
+  /* Activity heatmap cells */
+  .heatmap-0 { @apply bg-secondary; }
+  .heatmap-1 { @apply bg-primary/20; }
+  .heatmap-2 { @apply bg-primary/40; }
+  .heatmap-3 { @apply bg-primary/60; }
+  .heatmap-4 { @apply bg-primary/80; }
+  .heatmap-5 { @apply bg-primary; }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { @apply bg-transparent; }
+::-webkit-scrollbar-thumb { @apply bg-border rounded-full; }
+::-webkit-scrollbar-thumb:hover { @apply bg-muted-foreground/30; }
